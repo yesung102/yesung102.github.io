@@ -1,0 +1,54 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171717">
+<title>세탁소 기획 장부</title>
+<style>
+:root{color-scheme:light;--ink:#181818;--soft:#565656;--rule:#c8c8c8;--paper:#fff;--mist:#f4f4f4}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 "Malgun Gothic","Apple SD Gothic Neo",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
+main,header,footer{width:min(100% - 44px,960px);margin:auto}header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:18px 0;border-bottom:1px solid var(--ink)}header b{letter-spacing:-.04em}nav{display:flex;gap:18px}a{color:inherit;text-underline-offset:4px}nav a{font-size:.88rem;text-decoration:none;padding:6px 0}nav a:hover,summary:hover{text-decoration:underline}h1,h2,h3,p{margin:0}h1{font-size:clamp(2.45rem,6.4vw,4.35rem);letter-spacing:-.09em;line-height:1.12}h2{font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:-.065em;line-height:1.3}h3{font-size:1.13rem;letter-spacing:-.04em}.hero{padding:34px 0 24px}.updated{color:var(--soft);font-size:.85rem;margin-top:9px}.rail{display:grid;grid-template-columns:repeat(3,1fr);list-style:none;margin:0;padding:0;border:1px solid var(--ink)}.rail li{display:grid;align-content:center;padding:13px 18px;line-height:1.45;min-width:0}.rail li+li{border-left:1px solid var(--ink)}.rail small{font-size:.76rem}.rail strong{font-size:1.06rem}.rail [aria-current]{background:var(--ink);color:white}.next{padding:12px 0;color:var(--soft);font-size:.94rem}.next b{color:var(--ink);margin-right:10px}.block{padding:32px 0 15px}.heading{border-bottom:2px solid var(--ink);padding-bottom:12px}.record{display:grid;grid-template-columns:minmax(130px,30%) 1fr;gap:22px;padding:19px 0;border-bottom:1px solid var(--rule)}summary{display:flex;align-items:center;gap:9px;cursor:pointer;list-style:none;min-height:44px;font-weight:600;font-size:.89rem}summary::-webkit-details-marker{display:none}summary:before{content:"";width:7px;height:7px;flex:none;border-right:1.6px solid;border-top:1.6px solid;transform:rotate(45deg);margin:0 4px 0 2px}details[open]>summary:before{transform:rotate(135deg)}details{margin-top:5px}.inside{background:var(--mist);padding:14px 17px;font-size:.94rem}.inside dl{margin:0;display:grid;grid-template-columns:4.4rem 1fr;gap:8px}.inside dt{font-weight:700}.inside dd{margin:0}table{border-collapse:collapse;width:100%;margin:0 0 18px}caption{text-align:left;font-weight:700}th,td{border-bottom:1px solid var(--rule);text-align:left;padding:5px 8px}ol.week{list-style:none;margin:0 0 12px;padding:0}.week li+li{margin-top:8px}.week b{display:block}.log{display:grid;grid-template-columns:125px 1fr;gap:16px;border-bottom:1px solid var(--rule);padding:14px 0}.log time{font-variant-numeric:tabular-nums;color:var(--soft)}.log p{font-size:.94rem}footer{margin-top:36px;padding:16px 0 30px;border-top:1px solid var(--ink);color:var(--soft);font-size:.85rem}:focus-visible{outline:2px solid var(--ink);outline-offset:3px}.skip{position:absolute;top:-100px;background:white}.skip:focus{top:0}
+@media(max-width:650px){main,header,footer{width:calc(100% - 32px)}header{gap:6px}nav{gap:12px}.hero{padding:26px 0 20px}.rail li{padding:10px}.rail strong{font-size:.94rem}.record{grid-template-columns:1fr;gap:5px;padding:16px 0 9px}.log{grid-template-columns:1fr;gap:3px}.inside{padding:12px}.inside dl{grid-template-columns:3.4rem 1fr}.block{padding:24px 0 8px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#decisions">확정 기획으로 이동</a>
+<header><b>세탁소 경영 시뮬레이션</b><nav aria-label="장부 목차"><a href="#decisions">확정 기획</a><a href="#history">저장 이력</a></nav></header>
+<main><div class="hero"><h1>세탁소 기획 장부</h1><p class="updated">마지막 정리　<time datetime="2026-11-25">2026. 11. 25.</time></p></div>
+<ol class="rail" aria-label="기획 진행 단계"><li><small>흐름 정리</small><strong>집 튜토리얼</strong></li><li aria-current="step"><small>현재 기획 중</small><strong>1호점 첫 영업</strong></li><li><small>이후 구상</small><strong>매장 성장</strong></li></ol>
+<p class="next"><b>다음 할 일</b>첫 방문 손님이 옷을 맡기고 찾아가기까지, 카운터에서 플레이어가 할 일을 정한다.</p>
+<section class="block" id="decisions"><div class="heading"><h2>확정 기획</h2></div>
+<article id="week" class="record">
+<h3>집에서 보내는 첫 일주일</h3><div><p>집에서 받은 첫 셔츠를 빨아 돌려주고, 일주일 동안 모은 돈으로 1호점을 연다.</p>
+<details><summary>일자별 흐름과 설계 이유</summary><div class="inside"><ol class="week">
+<li><b>1일 · 첫 셔츠</b>당근에 글을 올리고 마감 없는 일반 주문을 받는다. 집 욕실에서 빨고 발코니에 넌다.</li>
+<li><b>2일 · 첫 수입</b>건조도를 보고 현관 행거에서 완료한다. 손님이 수령하면 입금된다. 다음 셔츠로 소매 얼룩을 배운다.</li>
+<li><b>3일 · 후기와 건조 도구</b>첫 후기를 읽는다. 흐린 날 젖은 옷을 보고 부채·선풍기·드라이기의 쓰임을 익힌다.</li>
+<li><b>4일 · 여러 주문</b>남은 체력과 건조대 자리를 보고 새 주문을 받을지 고른다.</li>
+<li><b>5일 · 매물 탐색</b>후기와 주문이 쌓인다. 부동산 앱을 열고 밤에는 더 좋은 비누를 주문할 수 있다.</li>
+<li><b>6일 · 야간 급행</b>부동산 사장님의 급한 셔츠를 맡을지 판단한다. 거절해도 다음 날 기본 조건으로 매물을 소개받는다.</li>
+<li><b>7일 · 계약</b>집 주문을 모두 완료하고 잔액을 확인한다. 조건이 맞으면 보증금을 내고, 부족하면 이사를 미룬다.</li>
+</ol><p>한 벌을 다루는 법에서 시작해 여러 손님의 납기와 공간을 판단하게 된다. 집에서 생긴 제약이 점포를 열 이유가 된다.</p></div></details></div>
+</article>
+<article id="wash" class="record">
+<h3>손빨래와 부분 얼룩</h3><div><p>크게 빨기는 제한 시간 안에 무작위 방향키 7~10개를 순서대로 입력한다. 소매나 깃에 남은 얼룩은 별도 단계에서 지운다.</p>
+<details><summary>이전 조작과 부분 얼룩 후보</summary><div class="inside"><dl><dt>대체</dt><dd>크게 빨기의 좌클릭과 국소 얼룩의 마우스 휠 조작을 교체한다.</dd><dt>폐기</dt><dd>솔로 자국을 따라 닦는 안은 원하는 어린 시절 플래시 게임의 감각과 달라 제외했다.</dd><dt>보류</dt><dd>두더지 잡기, 짝 맞추기, 비눗방울 연쇄 반응이 후보였다. 짧은 게임을 더 해 보고 부분 얼룩 조작을 정한다.</dd><dt>시험값</dt><dd>첫 면 셔츠는 방향 8개부터 시작한다. 일반 주문은 기본 2판, 부분 얼룩이 있으면 1판 추가하는 안이다.</dd></dl></div></details></div>
+</article>
+<article id="wring" class="record">
+<h3>한 판에서 짜고, 이어서 털기</h3><div><p>스페이스바를 연타해 물기를 짠다. 옷이 펼쳐지면 움직이는 원이 목표 원에 겹치는 박자에 맞춰 털어 남은 물기와 주름을 줄인다.</p>
+<details><summary>대체한 방식과 옷감별 시험값</summary><div class="inside"><dl><dt>대체</dt><dd>연타로 털던 방식, 세 원을 같은 방식으로 누르는 안, 길게 눌러 짜는 안을 거쳤다. 짜기는 멈출 때를 고르고 털기는 박자를 맞추는 두 동작으로 정리했다.</dd><dt>확장</dt><dd>고급 손세탁 의류에도 같은 흐름을 적용한다. 섬세한 옷은 경고가 일찍 뜨고 과하게 짜면 손상이 더 쌓이는 안이다.</dd><dt>시험값</dt><dd>안전하게 짜기는 일반 면 6회·섬세한 옷 5회, 털기는 2박이다. 경고 뒤 과도한 짜기 1회당 손상은 +3%p·+5%p로 시험한다.</dd></dl></div></details></div>
+</article>
+<article id="quality" class="record">
+<h3>납품할 때 세탁 품질로 평가</h3><div><p>남은 얼룩·물기·주름·옷감 손상을 합쳐 별점을 정한다. 별 1개를 받은 주문은 불만 원인에 따라 환불이나 변상 요청으로 이어질 수 있다.</p>
+<details><summary>별점 기준과 개발자 협의안</summary><div class="inside"><table><caption>세탁 품질에 따른 별점</caption><thead><tr><th scope="col">납품 시 품질</th><th scope="col">손님 평가</th></tr></thead><tbody><tr><td>90% 이상</td><td>별 5개</td></tr><tr><td>85% 이상 ~ 90% 미만</td><td>별 4개</td></tr><tr><td>80% 이상 ~ 85% 미만</td><td>별 3개</td></tr><tr><td>75% 이상 ~ 80% 미만</td><td>별 2개</td></tr><tr><td>75% 미만</td><td>별 1개</td></tr></tbody></table><dl><dt>확장</dt><dd>‘청결도’를 ‘세탁 품질’로 확장했다. 마른 뒤 다림질로 편 주름까지 이중으로 감점하지 않도록 납품 상태를 본다.</dd><dt>협의</dt><dd>선택 1은 ‘3번째 오입력, 7번째 시간 초과’처럼 순번을 남긴다. 선택 2는 ‘정답 6개·오입력 1개·시간 초과 1개’와 결과 퍼센트를 남긴다.</dd><dt>제안</dt><dd>3일차 첫 후기는 별점과 한 줄 평으로 보여주는 안이다. 크게 빨기의 품질 비중 30%, 환불·변상 발생 조건과 금액은 개발자와 정한다.</dd><dt>이전안</dt><dd>손상도 15%를 단독 환불 기준으로 삼는 안은 시험 후보였다.</dd></dl></div></details></div>
+</article>
+<article id="shop" class="record">
+<h3>집에서 1호점으로</h3><div><p>계약 다음 날 세탁소 카운터에서 첫 방문 주문을 받는다. 보유한 비누와 도구, 단골·평판·잔액을 이어받고 매장 요금을 적용한다.</p>
+<details><summary>첫 영업 장면과 이후 성장 아이디어</summary><div class="inside"><dl><dt>초안</dt><dd>집에서 셔츠를 맡겼던 단골이 첫 손님으로 온다. 셔츠가 마르는 사이 두 번째 손님이 들어오면 건조대와 체력을 보고 주문을 받을지 고른다. 첫 옷을 찾아가면 장부에 매장 첫 수입이 찍힌다.</dd><dt>성장 구상</dt><dd>건조 공간과 다림질 서비스, 세탁기·건조기, 확장과 직원 고용을 거쳐 고정 거래처와 무인 2호점으로 이어진다. 장비 구입 시점은 플레이어의 영업 상황에 맡긴다.</dd><dt>후속 검토</dt><dd>첫 셔츠의 건조 시간, 도구 효과 중첩, 급행 납기 여유를 시험한 뒤 소모품비·매장 요금·보증금의 균형을 맞춘다.</dd></dl></div></details></div>
+</article>
+</section>
+<section class="block" id="history"><div class="heading"><h2>저장 이력</h2></div>
+<article class="log"><time datetime="2026-11-25">2026. 11. 25.</time><div><h3>집 튜토리얼 정리 · 1호점 첫 영업 기획 시작</h3><p>손빨래 조작과 세탁 품질 기준을 정리했다. 부분 얼룩은 보류하고 작업 기록은 두 안을 유지한다. 다음 논의는 카운터의 첫 방문 주문이다.</p><details><summary>이번에 달라진 내용</summary><div class="inside"><p>마우스로 크게 빨던 동작은 방향키 순서 입력으로, 연타로 털던 동작은 짜기 연타와 털기 리듬으로 바뀌었다. 청결도는 옷감 손상까지 반영하는 세탁 품질로 확장했다.</p></div></details></div></article>
+</section></main><footer>세탁소 경영 시뮬레이션 · 기획 장부</footer>
+</body></html>
