@@ -1,23 +1,118 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#171717">
+<meta name="description" content="집에서 첫 셔츠를 빨아 동네 세탁소를 여는 경영 게임. 현재 기획 단계, 다음 할 일, 확정 규칙과 변경 이력을 확인하세요.">
 <title>세탁소 기획 장부</title>
 <style>
-:root{color-scheme:light;--ink:#181818;--soft:#565656;--rule:#c8c8c8;--paper:#fff;--mist:#f4f4f4}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 "Malgun Gothic","Apple SD Gothic Neo",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
-main,header,footer{width:min(100% - 44px,960px);margin:auto}header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:18px 0;border-bottom:1px solid var(--ink)}header b{letter-spacing:-.04em}nav{display:flex;gap:18px}a{color:inherit;text-underline-offset:4px}nav a{font-size:.88rem;text-decoration:none;padding:6px 0}nav a:hover,summary:hover{text-decoration:underline}h1,h2,h3,p{margin:0}h1{font-size:clamp(2.45rem,6.4vw,4.35rem);letter-spacing:-.09em;line-height:1.12}h2{font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:-.065em;line-height:1.3}h3{font-size:1.13rem;letter-spacing:-.04em}.hero{padding:34px 0 24px}.updated{color:var(--soft);font-size:.85rem;margin-top:9px}.rail{display:grid;grid-template-columns:repeat(3,1fr);list-style:none;margin:0;padding:0;border:1px solid var(--ink)}.rail li{display:grid;align-content:center;padding:13px 18px;line-height:1.45;min-width:0}.rail li+li{border-left:1px solid var(--ink)}.rail small{font-size:.76rem}.rail strong{font-size:1.06rem}.rail [aria-current]{background:var(--ink);color:white}.next{padding:12px 0;color:var(--soft);font-size:.94rem}.next b{color:var(--ink);margin-right:10px}.block{padding:32px 0 15px}.heading{border-bottom:2px solid var(--ink);padding-bottom:12px}.record{display:grid;grid-template-columns:minmax(130px,30%) 1fr;gap:22px;padding:19px 0;border-bottom:1px solid var(--rule)}summary{display:flex;align-items:center;gap:9px;cursor:pointer;list-style:none;min-height:44px;font-weight:600;font-size:.89rem}summary::-webkit-details-marker{display:none}summary:before{content:"";width:7px;height:7px;flex:none;border-right:1.6px solid;border-top:1.6px solid;transform:rotate(45deg);margin:0 4px 0 2px}details[open]>summary:before{transform:rotate(135deg)}details{margin-top:5px}.inside{background:var(--mist);padding:14px 17px;font-size:.94rem}.inside dl{margin:0;display:grid;grid-template-columns:4.4rem 1fr;gap:8px}.inside dt{font-weight:700}.inside dd{margin:0}table{border-collapse:collapse;width:100%;margin:0 0 18px}caption{text-align:left;font-weight:700}th,td{border-bottom:1px solid var(--rule);text-align:left;padding:5px 8px}ol.week{list-style:none;margin:0 0 12px;padding:0}.week li+li{margin-top:8px}.week b{display:block}.log{display:grid;grid-template-columns:125px 1fr;gap:16px;border-bottom:1px solid var(--rule);padding:14px 0}.log time{font-variant-numeric:tabular-nums;color:var(--soft)}.log p{font-size:.94rem}footer{margin-top:36px;padding:16px 0 30px;border-top:1px solid var(--ink);color:var(--soft);font-size:.85rem}:focus-visible{outline:2px solid var(--ink);outline-offset:3px}.skip{position:absolute;top:-100px;background:white}.skip:focus{top:0}
-@media(max-width:650px){main,header,footer{width:calc(100% - 32px)}header{gap:6px}nav{gap:12px}.hero{padding:26px 0 20px}.rail li{padding:10px}.rail strong{font-size:.94rem}.record{grid-template-columns:1fr;gap:5px;padding:16px 0 9px}.log{grid-template-columns:1fr;gap:3px}.inside{padding:12px}.inside dl{grid-template-columns:3.4rem 1fr}.block{padding:24px 0 8px}}
+:root {
+  color-scheme: light;
+  --ink: #171717;
+  --muted: #545454;
+  --line: #cecece;
+  --wash: #f5f5f3;
+  --paper: #fff;
+  font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 1rem; }
+body { margin: 0; color: var(--ink); background: var(--paper); line-height: 1.65; word-break: keep-all; overflow-wrap: anywhere; }
+header, main, footer { width: min(1040px, 100% - 48px); margin-inline: auto; }
+header, footer, nav, .section-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+header { border-bottom: 1px solid var(--ink); padding: 12px 0; }
+nav { justify-content: flex-start; gap: 1.25rem; font-size: .86rem; }
+a { color: inherit; text-underline-offset: .25em; }
+nav a { display: inline-flex; align-items: center; min-height: 40px; text-decoration: none; }
+a:hover, summary:hover { text-decoration: underline; }
+a:focus-visible, summary:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+.skip { position: absolute; left: 1rem; top: -6rem; background: white; padding: .4rem; }
+.skip:focus { top: .5rem; }
+h1, h2, h3, p, ol, dl, dd { margin: 0; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.28; }
+h1 { font-size: clamp(2.3rem, 6vw, 4rem); letter-spacing: -.075em; }
+h2 { font-size: clamp(1.4rem, 3.4vw, 2rem); letter-spacing: -.065em; }
+h3 { font-size: 1.09rem; letter-spacing: -.04em; }
+.hero { padding: 32px 0 24px; }
+.hero p { max-width: 57ch; margin-top: 10px; }
+.updated, .state, .log time, footer { font-size: .83rem; color: var(--muted); }
+section { margin: 0 0 38px; }
+.section-head, .heading { margin-bottom: 14px; }
+.flow { display: grid; grid-template-columns: repeat(5, 1fr); list-style: none; padding: 0; border-block: 1px solid var(--ink); }
+.flow li { padding: 12px; display: grid; gap: 3px; align-content: start; }
+.flow strong { line-height: 1.35; }
+.flow li + li { border-left: 1px solid var(--line); }
+.flow small { font-size: .78rem; }
+.flow [aria-current] { background: var(--ink); color: white; }
+.next { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem 1rem; background: var(--wash); padding: 12px 15px; }
+.next b { font-size: .84rem; }
+.tasks { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
+.task { padding: 16px 18px; border: 1px solid var(--line); border-top: 3px solid var(--ink); border-radius: 0 0 8px 8px; }
+.task .state { display: block; margin-bottom: 6px; }
+.task p { margin: .5rem 0; font-size: .94rem; }
+.task a { display: inline-block; padding-block: .4rem; font-size: .88rem; }
+.record, .log { display: grid; grid-template-columns: minmax(140px,29%) 1fr; gap: 22px; border-top: 1px solid var(--line); padding: 16px 0; }
+.record:target, .task:target { outline: 2px solid var(--ink); outline-offset: 3px; }
+summary { cursor: pointer; min-height: 44px; padding-block: 10px; font-weight: 700; font-size: .91rem; }
+details { margin-top: 3px; }
+.inside { background: var(--wash); padding: 14px 16px; font-size: .94rem; border-radius: 4px; }
+.inside dt { font-weight: bold; }
+.inside dd + dt { margin-top: 8px; }
+table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+caption, th, td { text-align: left; }
+td, th { padding: .3rem .5rem; border-bottom: 1px solid var(--line); }
+.week { padding: 0; list-style: none; }
+.week li { margin-bottom: .5rem; }
+.week b { display: block; }
+.log { grid-template-columns: 120px 1fr; }
+.log p { font-size: .94rem; margin-top: .3rem; }
+footer { border-top: 1px solid var(--ink); padding: 16px 0 32px; }
+@media (max-width: 760px) {
+  .tasks { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .flow li { padding: 9px 7px; }
+}
+@media (max-width: 570px) {
+  header, main, footer { width: calc(100% - 32px); }
+  header { gap: 0; padding-bottom: 3px; }
+  nav { gap: 12px; }
+  .hero { padding: 20px 0 18px; }
+  .flow { grid-template-columns: 1fr; }
+  .flow li { grid-template-columns: 5.3rem 1fr; align-items: baseline; padding: 6px 10px; }
+  .flow li + li { border-left: 0; border-top: 1px solid var(--line); }
+  .tasks, .record, .log { grid-template-columns: 1fr; }
+  .record, .log { gap: .4rem; }
+  .next { display: grid; }
+  section { margin-bottom: 28px; }
+}
 </style>
 </head>
-<body>
-<a class="skip" href="#decisions">확정 기획으로 이동</a>
-<header><b>세탁소 경영 시뮬레이션</b><nav aria-label="장부 목차"><a href="#decisions">확정 기획</a><a href="#history">저장 이력</a></nav></header>
-<main><div class="hero"><h1>세탁소 기획 장부</h1><p class="updated">마지막 정리　<time datetime="2026-11-25">2026. 11. 25.</time></p></div>
-<ol class="rail" aria-label="기획 진행 단계"><li><small>흐름 정리</small><strong>집 튜토리얼</strong></li><li aria-current="step"><small>현재 기획 중</small><strong>1호점 첫 영업</strong></li><li><small>이후 구상</small><strong>매장 성장</strong></li></ol>
-<p class="next"><b>다음 할 일</b>첫 방문 손님이 옷을 맡기고 찾아가기까지, 카운터에서 플레이어가 할 일을 정한다.</p>
+<body id="top">
+<a class="skip" href="#roadmap">기획 순서로 이동</a>
+<header><b>세탁소 경영 시뮬레이션</b><nav aria-label="장부 목차"><a href="#roadmap">기획 순서</a><a href="#work">작업 블록</a><a href="#decisions">확정 기획</a><a href="#history">저장 이력</a></nav></header>
+<main>
+<div class="hero"><h1>세탁소 기획 장부</h1><p>동네 세탁소가 문을 닫자 집에서 이웃의 셔츠를 맡기 시작한다. 손빨래로 번 돈으로 첫 가게를 열고, 어떤 주문과 장비에 투자할지 고르는 경영 게임이다.</p></div>
+<section id="roadmap" aria-labelledby="flow-title">
+<div class="section-head"><h2 id="flow-title">기획 순서</h2><p class="updated">마지막 정리 <time datetime="2026-11-25">2026. 11. 25.</time></p></div>
+<ol class="flow">
+  <li><small>1 · 구상 정리</small><strong>게임의 목표 정하기</strong></li>
+  <li><small>2 · 흐름 정리</small><strong>첫 주문 따라가기</strong></li>
+  <li aria-current="step"><small>3 · 현재 작업</small><strong>1호점의 하루 그리기</strong></li>
+  <li><small>4 · 다음</small><strong>수입과 성장 맞추기</strong></li>
+  <li><small>5 · 이후</small><strong>한 벌로 만들어 보기</strong></li>
+</ol>
+<p class="next"><b>다음에 펼칠 일감</b><a href="#first-day">첫 방문 손님의 셔츠를 접수해서 돌려주기까지 주문표 한 장 그리기</a></p>
+</section>
+<section id="work"><div class="section-head"><h2>지금 기획하는 일</h2></div>
+<div class="tasks">
+  <article class="task" id="first-day"><span class="state">지금 작성</span><h3>첫 영업일 주문표</h3><p>아침에 걷은 셔츠 한 벌이 언제 행거로 옮겨지고, 언제 매출이 되는지 그린다.</p><a href="#day">하루 운영 보기</a></article>
+  <article class="task" id="hiring-task"><span class="state">함께 설계</span><h3>직원 한 명의 첫 근무</h3><p>손빨래가 밀렸을 때 직원을 고용하고 첫 옷을 맡기기까지의 화면을 그린다.</p><a href="#staff">직원 배치안 보기</a></article>
+  <article class="task" id="stock-task"><span class="state">함께 설계</span><h3>마감 후 발주 한 건</h3><p>선반에 비누 한 개가 남은 날, 재고 확인부터 다음 배송까지 적는다.</p><a href="#stock">재고와 장비 보기</a></article>
+  <article class="task" id="budget-task"><span class="state">다음 작업</span><h3>첫 주와 첫 달의 장부</h3><p>세탁료에서 세제값·월세·이자를 빼고, 첫 설비를 살 날의 잔액을 계산한다.</p><a href="#growth">성장 단계 보기</a></article>
+  <article class="task" id="orders-task"><span class="state">후보 검토</span><h3>어떤 옷을 받을까</h3><p>셔츠와 바지 주문부터 취급표시·필요한 작업·가격을 주문표 한 줄에 담는다.</p><a href="#portfolio">의류와 수선 보기</a></article>
+  <article class="task" id="prototype"><span class="state">개발자와 협의</span><h3>손빨래 한 판의 시제품</h3><p>셔츠 한 벌로 방향 입력부터 건조·납품까지 해 보고 실수와 감점 기록을 비교한다.</p><a href="#quality">판정 기준 보기</a></article>
+</div></section>
+
 <section class="block" id="decisions"><div class="heading"><h2>확정 기획</h2></div>
 <article id="week" class="record">
 <h3>집에서 보내는 첫 일주일</h3><div><p>집에서 받은 첫 셔츠를 빨아 돌려주고, 일주일 동안 모은 돈으로 1호점을 연다.</p>
@@ -37,7 +132,7 @@ main,header,footer{width:min(100% - 44px,960px);margin:auto}header{display:flex;
 </article>
 <article id="wring" class="record">
 <h3>한 판에서 짜고, 이어서 털기</h3><div><p>스페이스바를 연타해 물기를 짠다. 옷이 펼쳐지면 움직이는 원이 목표 원에 겹치는 박자에 맞춰 털어 남은 물기와 주름을 줄인다.</p>
-<details><summary>대체한 방식과 옷감별 시험값</summary><div class="inside"><dl><dt>대체</dt><dd>연타로 털던 방식, 세 원을 같은 방식으로 누르는 안, 길게 눌러 짜는 안을 거쳤다. 짜기는 멈출 때를 고르고 털기는 박자를 맞추는 두 동작으로 정리했다.</dd><dt>확장</dt><dd>고급 손세탁 의류에도 같은 흐름을 적용한다. 섬세한 옷은 경고가 일찍 뜨고 과하게 짜면 손상이 더 쌓이는 안이다.</dd><dt>시험값</dt><dd>안전하게 짜기는 일반 면 6회·섬세한 옷 5회, 털기는 2박이다. 경고 뒤 과도한 짜기 1회당 손상은 +3%p·+5%p로 시험한다.</dd></dl></div></details></div>
+<details><summary>대체한 방식과 옷감별 시험값</summary><div class="inside"><dl><dt>대체</dt><dd>연타로 털던 방식, 세 원을 같은 방식으로 누르는 안, 길게 눌러 짜는 안을 거쳤다. 짜기는 멈출 때를 고르고 털기는 박자를 맞추는 두 동작으로 정리했다.</dd><dt>확장</dt><dd>고급 손세탁 의류에도 같은 흐름을 적용한다. 섬세한 옷은 경고가 일찍 뜨고 과하게 짜면 손상이 더 쌓이는 안이다.</dd><dt>시험값</dt><dd>안전하게 짜기는 일반 면 6회·섬세한 옷 5회, 털기는 2박이다. 경고 뒤 과도한 짜기 1회당 손상은 +3%p·+5%p로 시험한다.</dd><dt>보류</dt><dd>튜토리얼 털기의 판정 애니메이션 후보는 두 가지다. A안은 퍼펙트·굿·미스 3단계로 정확도에 따라 물방울과 옷이 펴지는 모습을 다르게 한다. B안은 굿·미스 2단계로 단순화해 성공·실패 연출을 나눈다. 선택, 판정 범위, 애니메이션 강도와 점수 반영은 미정이다.</dd></dl></div></details></div>
 </article>
 <article id="quality" class="record">
 <h3>납품할 때 세탁 품질로 평가</h3><div><p>남은 얼룩·물기·주름·옷감 손상을 합쳐 별점을 정한다. 별 1개를 받은 주문은 불만 원인에 따라 환불이나 변상 요청으로 이어질 수 있다.</p>
@@ -47,8 +142,67 @@ main,header,footer{width:min(100% - 44px,960px);margin:auto}header{display:flex;
 <h3>집에서 1호점으로</h3><div><p>계약 다음 날 세탁소 카운터에서 첫 방문 주문을 받는다. 보유한 비누와 도구, 단골·평판·잔액을 이어받고 매장 요금을 적용한다.</p>
 <details><summary>첫 영업 장면과 이후 성장 아이디어</summary><div class="inside"><dl><dt>초안</dt><dd>집에서 셔츠를 맡겼던 단골이 첫 손님으로 온다. 셔츠가 마르는 사이 두 번째 손님이 들어오면 건조대와 체력을 보고 주문을 받을지 고른다. 첫 옷을 찾아가면 장부에 매장 첫 수입이 찍힌다.</dd><dt>성장 구상</dt><dd>건조 공간과 다림질 서비스, 세탁기·건조기, 확장과 직원 고용을 거쳐 고정 거래처와 무인 2호점으로 이어진다. 장비 구입 시점은 플레이어의 영업 상황에 맡긴다.</dd><dt>후속 검토</dt><dd>첫 셔츠의 건조 시간, 도구 효과 중첩, 급행 납기 여유를 시험한 뒤 소모품비·매장 요금·보증금의 균형을 맞춘다.</dd></dl></div></details></div>
 </article>
+<article class="record" id="day">
+  <h3>문 열고, 옷을 돌려주고, 마감하기</h3>
+  <div><p>아침에 가게 문을 열고 전날 마른 옷을 앞쪽 완성 행거에 건다. 낮에는 주문을 받고 세탁한다. 저녁에는 청소한 뒤 재고를 세고 필요한 물품을 주문한다.</p>
+    <details><summary>첫 영업일에 정할 세부 규칙</summary><div class="inside"><dl>
+      <dt>수령과 입금</dt><dd>한 주문의 옷을 모두 행거에 건 뒤 완료를 누르면 수령 대기가 된다. 손님이 찾아갈 때 대금을 한 번 받는 흐름이다.</dd>
+      <dt>일반·급행</dt><dd>일반 주문은 마감이 없다. 급행은 완료를 누른 시각과 약속 시각을 비교한다. 피로, 날씨, 빈 건조 칸을 보고 다음 주문을 받을지 고른다.</dd>
+      <dt>남은 질문</dt><dd>마감 직전에 완료한 주문을 언제 찾아가는지, 물품이 언제 도착하는지 정한다.</dd>
+    </dl></div></details>
+  </div>
+</article>
 </section>
-<section class="block" id="history"><div class="heading"><h2>저장 이력</h2></div>
+<section id="drafts"><div class="section-head"><h2>논의 중인 운영 규칙</h2></div>
+<article class="record" id="staff">
+  <h3>구인구직 창과 업무 칸</h3>
+  <div><p>직원을 고용한 뒤 초상화를 손빨래·기계 세탁·다림질·수선 칸에 넣어 일을 맡기는 안이다. 빈 파트는 사장이 직접 처리한다.</p>
+    <details><summary>고용 시점 · 배치 예시 · 이전 안</summary><div class="inside"><dl>
+      <dt>첫 직원 시험안</dt><dd>혼자 일하다 손작업 2건 이상이 대기하면 구인구직 창을 한 번 안내한다. 자연 건조와 손님 수령 대기는 집계에서 뺀다. 고용 시점은 플레이어가 고른다.</dd>
+      <dt>화면 초안</dt><dd>지원자의 특기와 급여 확인 → 고용 → 손빨래 칸에 초상화 배치 → 직원이 대기 중인 옷을 받는다. 수선 칸은 수선대와 서비스 해금 뒤에 연다.</dd>
+      <dt>규모 후보</dt><dd>혼자 시작해 첫 보조원 1명, 기계와 작업대가 늘면 2~3명, 수선·접수까지 분담하면 4~5명 안팎을 검토한다. 급여·숙련도·교육·실수의 균형은 시험한다.</dd>
+      <dt>대체한 안</dt><dd>4영업일 이후 최근 3일 중 2일이 바빠야 한다는 조건을 완화했다. 구인 공고 팝업 대신 직접 여는 채용 창과 업무 배치를 제안했다.</dd>
+    </dl></div></details>
+  </div>
+</article>
+<article class="record" id="stock">
+  <h3>휴대폰 발주와 창고 선반</h3>
+  <div><p>마감 때 확인한 재고로 휴대폰 장보기 앱에서 세제와 비누를 주문하는 안이다.</p>
+    <details><summary>배송 · 보관 · 중고품</summary><div class="inside"><dl>
+      <dt>보관 후보</dt><dd>창고에 상자째 보관하거나 선반에 종류별로 놓는다. 배송 상자를 한 번 조작하면 선반으로 정리되는 방식도 비교한다.</dd>
+      <dt>발주 후보</dt><dd>앱에서 수량과 배송 예정일을 확인한다. 급할 때 비싼 당일 구매를 허용할지 정한다. 컴퓨터 없이 휴대폰과 실물 보관만 쓰는 방향이다.</dd>
+      <dt>새 제품과 중고</dt><dd>새 세탁기는 성능이 안정적이다. 중고는 싸고, 매물에 따라 통 청소가 잦거나 세탁 후 오염이 조금 남는다. 살 때 가격·용량·상태를 비교하는 안이다.</dd>
+    </dl></div></details>
+  </div>
+</article>
+<article class="record" id="growth">
+  <h3>동네 세탁소가 커지는 다섯 단계</h3>
+  <div><p>첫 영업, 다림질, 기계 세탁, 공간 확장, 전문점 순으로 성장하는 초안이다.</p>
+    <details><summary>장비를 살 이유와 해금 후보</summary><div class="inside"><dl>
+      <dt>첫 영업과 다림질</dt><dd>손빨래와 건조대로 시작한다. 갈빗집 일감을 계기로 숯다리미와 작은 판을 얻고 일반 다리미, 가정용 스팀, 세탁소용 다리미로 발전하는 안이다.</dd>
+      <dt>기계와 공간</dt><dd>손빨래가 밀리면 첫 세탁기를, 건조 칸이 부족하면 건조기나 공간 확장을 고려한다. 세탁기·건조기 대수, 선반, 작업대를 늘리는 순서는 영업 상황에 맡긴다.</dd>
+      <dt>돈과 서비스</dt><dd>첫 달 장부에서 세탁료·임금·공과금·월세·이자·기계값을 비교한다. 연체 시 기계 처분과 잔액 이월도 검토한다. 바지 기장 수선은 다림질 이후 해금하는 안이다.</dd>
+      <dt>후반 후보</dt><dd>고정 거래처와 무인 2호점을 검토한다. 직원에게 가게를 맡길 여유가 생기면 플레이어 혼자 카지노에서 게임 속 보유 자산을 늘리거나 잃는 선택지도 제안했다. 해금 조건과 판돈은 미정이다.</dd>
+    </dl></div></details>
+  </div>
+</article>
+
+<article id="detergent" class="record"><h3>손세탁 코스 효과와 특수 의뢰 구상</h3><div><p>빨기 등 손세탁 전반에 동작 이펙트를 적용하고, 용도별 세제와 스포츠 구단 의뢰를 확장 아이디어로 제안했다. 구체 효과와 진행 방식은 미정이다.</p><details><summary>보류 중인 확장 아이디어</summary><div class="inside"><dl><dt>이펙트</dt><dd>털기뿐 아니라 빨기 등 모든 손세탁 코스에서 입력과 결과가 보이는 애니메이션·효과를 적용하는 구상이다. 크게 빨기에서 방향키를 틀리면 캐릭터가 살짝 미끄러지는 짧은 반응도 후보로 나왔다. 리듬히어로처럼 실수를 즉시 알아차리는 피드백을 참고하며, 반복 여부와 길이는 미정이다.</dd><dt>세제</dt><dd>울 전용, 일반 중성, 스포츠 의류용 세제로 나누는 안이다. 각 세제의 옷감 적합성, 흙·잔디 등 오염별 효과와 비용은 미정이다.</dd><dt>구단 의뢰</dt><dd>야구·축구 구단의 유니폼은 흙이나 잔디 오염이 심해 기계 세탁 후에도 때가 남고, 기계 세탁에 손빨래를 더하는 특수 주문으로 구상한다. 의뢰 소개에 유명 선수 미션을 연결하는 예시도 나왔으며 채택 여부는 미정이다.</dd><dt>후속 검토</dt><dd>등장 시점, 주문 난이도와 보상, 특정 인물 연계 가능성을 정한다. 현재 튜토리얼 기본 규칙에는 반영하지 않는다.</dd></dl></div></details></div></article>
+<article id="portfolio" class="record"><h3>취급 의류와 추가 서비스 범위</h3><div><p>기본 의류 후보를 정리하고, 다림질을 해금한 뒤 간단한 바지 수선을 열어가는 안을 제안했다. 품목 구성과 해금 순서는 결정 전이다.</p><details><summary>후보 품목과 단계별 서비스</summary><div class="inside"><dl><dt>초반 후보</dt><dd>셔츠·티셔츠·청바지·면바지를 중심으로 주문을 구성한다. 이 중 실제 주요 취급 품목과 주문 비중은 정해야 한다.</dd><dt>추가 후보</dt><dd>니트·스웨터, 치마·원피스, 재킷·정장은 옷감·취급표시·다림질 차이를 활용할 수 있다. 도입 순서는 미정이다.</dd><dt>후반 후보</dt><dd>야구·축구 유니폼은 특수 얼룩을 다루는 구단 의뢰로, 이불·커튼은 큰 세탁물로 검토한다.</dd><dt>패딩</dt><dd>세탁과 건조 규칙을 더 고민할 품목으로 보류한다.</dd><dt>수선 해금안</dt><dd>다림질을 익힌 뒤 간단한 바지 기장 수선을 해금하는 안이다. 단추 달기와 찢어진 곳 꿰매기는 후속 후보이며, 미니게임·가격·재료는 미정이다.</dd></dl></div></details></div></article>
+</section>
+<section id="history"><div class="heading"><h2>저장 이력</h2></div>
+<article class="log">
+  <time datetime="2026-11-25">2026. 11. 25.</time>
+  <div><h3>1호점 하루 운영과 직원 배치를 한 장부에 연결</h3>
+  <p>개점부터 청소·발주까지의 하루, 장비 투자와 고용 흐름을 모았다. 기획 순서에서 다음 일감과 해당 규칙을 바로 펼쳐 볼 수 있다.</p>
+  <details><summary>이번에 바뀐 운영안</summary><div class="inside">직원은 구인구직 창에서 고용한 뒤 업무 칸에 배치한다. 컴퓨터 구매 대신 휴대폰 발주와 선반 보관을 검토한다. 후반 카지노는 사장이 혼자 방문하는 선택 콘텐츠로 정리했다.</div></details></div>
+</article>
+<article class="log"><time datetime="2026-11-25">2026. 11. 25.</time><div><h3>첫 직원 고용 기준 완화</h3><p>손작업이 2건 이상 밀리면 구인 공고를 선택지로 열고, 자연 건조와 수령 대기는 과부하에서 제외하는 시험안을 기록했다. 직원을 고용하지 않아도 진행할 수 있다.</p></div></article><article class="log"><time datetime="2026-11-25">2026. 11. 25.</time><div><h3>방향키 오입력 반응 연출 추가</h3><p>크게 빨기에서 틀린 방향키 입력에 캐릭터가 살짝 미끄러지는 짧은 컷인 후보를 보류 아이디어로 기록했다. 반복 여부와 연출 길이는 미정이다.</p></div></article><article class="log"><time datetime="2026-11-25">2026. 11. 25.</time><div><h3>바지 수선과 취급 의류 후보 추가</h3><p>다림질 이후 간단한 바지 수선을 해금하는 안과 주요 의류 후보를 기록했다. 패딩은 보류하고 품목 구성과 도입 순서는 추후 정한다.</p></div></article>
+<article class="log"><time datetime="2026-11-25">2026. 11. 25.</time><div><h3>손세탁 이펙트·세제·구단 의뢰 확장안 추가</h3><p>모든 손세탁 코스 이펙트, 용도별 세제, 흙·잔디 얼룩이 남는 스포츠 유니폼 의뢰를 보류 아이디어로 기록했다. 구체 효과와 유명 선수 미션 연결은 추후 검토한다.</p></div></article>
+<article class="log"><time datetime="2026-11-25">2026. 11. 25.</time><div><h3>튜토리얼 털기 애니메이션 아이디어 추가</h3><p>박자 판정에 따라 옷과 물방울 애니메이션을 다르게 하는 안을 보류 아이디어로 저장했다. 3단계 판정과 2단계 판정을 비교하며 선택은 추후 논의한다.</p></div></article>
 <article class="log"><time datetime="2026-11-25">2026. 11. 25.</time><div><h3>집 튜토리얼 정리 · 1호점 첫 영업 기획 시작</h3><p>손빨래 조작과 세탁 품질 기준을 정리했다. 부분 얼룩은 보류하고 작업 기록은 두 안을 유지한다. 다음 논의는 카운터의 첫 방문 주문이다.</p><details><summary>이번에 달라진 내용</summary><div class="inside"><p>마우스로 크게 빨던 동작은 방향키 순서 입력으로, 연타로 털던 동작은 짜기 연타와 털기 리듬으로 바뀌었다. 청결도는 옷감 손상까지 반영하는 세탁 품질로 확장했다.</p></div></details></div></article>
-</section></main><footer>세탁소 경영 시뮬레이션 · 기획 장부</footer>
-</body></html>
+
+</section></main>
+<footer><span>세탁소 경영 시뮬레이션 · 기획 장부</span><a href="#top">맨 위로</a></footer>
+</body>
+</html>
